@@ -6,12 +6,14 @@ import time
 import urllib.request
 import urllib.parse
 from datetime import datetime
+from dotenv import load_dotenv
+
 
 DISK_THRESHOLD = 80
 RAM_THRESHOLD = 80
 CHECK_INTERVAL_SECONDS = 300 
-TELEGRAM_BOT_TOKEN = "9039053985:AAEiooHdi-TsQNFtXIdjf5tnb_WvwiYxGRU"
-TELEGRAM_CHAT_ID = "2116532703"
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_telegram_alert(message):
     """Sends an alert message to your Telegram chat."""

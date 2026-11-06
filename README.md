@@ -54,47 +54,32 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## ⚙️ Configuration
-
-Open `sys.py` and update your thresholds and Telegram
-credentials:
-
-``` python
-DISK_THRESHOLD = 80
-RAM_THRESHOLD = 85
-CPU_THRESHOLD = 85
-CHECK_INTERVAL_SECONDS = 300
-
-TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN"
-TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"
-```
-
-  -----------------------------------------------------------------------------
-  Setting                                         Default Meaning
-  -------------------------- ---------------------------- ---------------------
-  `DISK_THRESHOLD`                                     80 Send an alert when
-                                                          disk usage is at or
-                                                          above this percentage
-
-  `RAM_THRESHOLD`                                      85 Send an alert when
-                                                          RAM usage is at or
-                                                          above this percentage
-
-  `CPU_THRESHOLD`                                      85 Send an alert when
-                                                          overall CPU usage is
-                                                          at or above this
-                                                          percentage
-
-  `CHECK_INTERVAL_SECONDS`                            300 Time between checks,
-                                                          in seconds
-
-  `TELEGRAM_BOT_TOKEN`                               None Telegram bot token
-                                                          from @BotFather
-
-  `TELEGRAM_CHAT_ID`                                 None Telegram chat or
-                                                          channel ID that
-                                                          receives alerts
-  -----------------------------------------------------------------------------
+⚙️ Configuration & Environment Setup
+Create the `.env` file
+Copy or create your configuration file named `.env` in the root project directory:
+```bash
+   touch .env
+   ```
+Add Telegram credentials
+Add your Telegram credentials inside the `.env` file:
+```env
+   TELEGRAM_BOT_TOKEN=your_actual_bot_token_here
+   TELEGRAM_CHAT_ID=your_actual_chat_id_here
+   ```
+Configure system monitoring thresholds
+Open `sys.py` to adjust your safety thresholds if needed:
+```python
+   DISK_THRESHOLD = 80
+   RAM_THRESHOLD = 85
+   CPU_THRESHOLD = 85
+   CHECK_INTERVAL_SECONDS = 300
+   ```
+Setting	Default	Meaning
+`DISK_THRESHOLD`	`80`	Send alert when disk usage is at or above this percentage
+`RAM_THRESHOLD`	`85`	Send alert when RAM usage is at or above this percentage
+`CPU_THRESHOLD`	`85`	Send alert when overall CPU usage is at or above this percentage
+`CHECK_INTERVAL_SECONDS`	`300`	Time between system checks, in seconds
+> **Security Note:** Your `.env` file is automatically ignored by Git (via `.gitignore`) to ensure your private bot tokens and chat IDs are never accidentally exposed or pushed to GitHub.  -----------------------------------------------------------------------------
 
 
 ``` python
